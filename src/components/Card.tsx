@@ -1,7 +1,8 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
+import type { HTMLMotionProps } from 'framer-motion'
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+type CardProps = Omit<HTMLMotionProps<'div'>, 'children'> & {
   children: ReactNode
   hover?: boolean
 }
