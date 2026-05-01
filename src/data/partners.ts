@@ -1,0 +1,62 @@
+import type { Partner } from '../types'
+
+export const partners: Partner[] = [
+  {
+    name: 'Alhabashy Studio',
+    type: 'Developer Partner',
+    image: '/partners/alhabashy.svg',
+    description: 'UI/UX and FiveM development partner helping build premium server systems.',
+    url: 'https://your-portfolio.com',
+    verified: true,
+    socials: {
+      discord: 'https://discord.gg/YOUR_LINK',
+      instagram: 'https://instagram.com/YOUR_ACCOUNT',
+      tiktok: 'https://tiktok.com/@YOUR_ACCOUNT',
+    },
+  },
+  {
+    name: 'Roleplay Network',
+    type: 'Community Partner',
+    image: '/partners/community.svg',
+    description: 'Trusted RP community sharing events, guides, and city announcements.',
+    url: 'https://discord.gg/YOUR_LINK',
+    verified: true,
+    socials: { discord: 'https://discord.gg/YOUR_LINK' },
+  },
+  {
+    name: 'NightShift Streams',
+    type: 'Streamer',
+    image: '/partners/streamer.svg',
+    description: 'FiveM streamer covering city events, public jobs, and police scenes.',
+    url: 'https://youtube.com/@YOUR_ACCOUNT',
+    verified: false,
+    socials: { youtube: 'https://youtube.com/@YOUR_ACCOUNT', tiktok: 'https://tiktok.com/@YOUR_ACCOUNT' },
+  },
+  {
+    name: 'Orange Mods',
+    type: 'Sponsor',
+    image: '/partners/sponsor.svg',
+    description: 'Supporting community events, giveaway nights, and city development milestones.',
+    url: 'https://your-portfolio.com',
+    verified: true,
+    socials: { website: 'https://your-portfolio.com' },
+  },
+  {
+    name: 'Creator Hub',
+    type: 'Content Creator',
+    image: '/partners/creator.svg',
+    description: 'A content group creating reels, shorts, and highlight videos for the city.',
+    url: 'https://tiktok.com/@YOUR_ACCOUNT',
+    verified: false,
+    socials: { tiktok: 'https://tiktok.com/@YOUR_ACCOUNT', instagram: 'https://instagram.com/YOUR_ACCOUNT' },
+  },
+  {
+    name: 'Discord Support Hub',
+    type: 'Discord Partner',
+    image: '/partners/discord.svg',
+    description: 'Discord community partner helping players with tickets, events, and onboarding.',
+    url: 'https://discord.gg/YOUR_LINK',
+    verified: true,
+    socials: { discord: 'https://discord.gg/YOUR_LINK' },
+  },
+]
