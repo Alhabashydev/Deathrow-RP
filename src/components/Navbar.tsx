@@ -38,6 +38,9 @@ const secondaryNavItems = [
 const navItems = [...primaryNavItems, ...secondaryNavItems]
 
 type NavItem = (typeof navItems)[number]
+type LinkStateItem = {
+  id: NavItem['id'] | 'more'
+}
 
 export default function Navbar({ language, onLanguageChange, theme, onThemeToggle }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
@@ -86,16 +89,16 @@ export default function Navbar({ language, onLanguageChange, theme, onThemeToggl
     setMoreOpen(false)
   }
 
-  const linkClass = (item: NavItem) => {
-    const active = activeId === item.id
-    return [
-      'relative inline-flex h-8 shrink-0 items-center justify-center whitespace-nowrap rounded-md px-3 text-sm font-semibold transition-all duration-200',
-      'focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50',
-      active
-        ? 'bg-black text-white shadow-[0_0_24px_rgba(0,0,0,.18)] dark:bg-white dark:text-black dark:shadow-[0_0_28px_rgba(255,255,255,.18)]'
-        : 'text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black',
-    ].join(' ')
-  }
+const linkClass = (item: LinkStateItem) => {
+  const active = activeId === item.id
+  return [
+    'relative inline-flex h-8 shrink-0 items-center justify-center whitespace-nowrap rounded-md px-3 text-sm font-semibold transition-all duration-200',
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50',
+    active
+      ? 'bg-black text-white shadow-[0_0_24px_rgba(0,0,0,.18)] dark:bg-white dark:text-black dark:shadow-[0_0_28px_rgba(255,255,255,.18)]'
+      : 'text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black',
+  ].join(' ')
+}
 
   const navLink = (item: NavItem) => (
     <button key={item.id} type="button" onClick={() => scrollToSection(item.id)} className={linkClass(item)}>
@@ -135,7 +138,7 @@ export default function Navbar({ language, onLanguageChange, theme, onThemeToggl
             <div className="flex max-w-[760px] items-center gap-1 overflow-x-auto rounded-xl border border-black/20 bg-white p-1 dark:border-white/20 dark:bg-black backdrop-blur hide-scrollbar">
               {primaryNavItems.map(navLink)}
               <div data-navbar-more className="relative">
-                <button type="button" onClick={() => setMoreOpen((value) => !value)} className={linkClass({ id: 'more', key: 'support' } as NavItem)}>
+                <button type="button" onClick={() => setMoreOpen((value) => !value)} className={linkClass({ id: 'more' })}>
                   More <FaChevronDown className={`ml-2 text-[10px] transition ${moreOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
